@@ -1,0 +1,38 @@
+<div class="px-4">
+  @switch (this.currentStep.id) {
+    @case (CATEGORY) {
+      <app-category-step [categoryName]="newJob.category"
+                         (categoryChange)="onCategoryChange($event)"
+                         (stepValidityChange)="onValidityChange($event)"></app-category-step>
+    }
+    @case (LOCATION) {
+      <app-location-step [location]="newJob.location"
+                         (locationChange)="onLocationChange($event)"
+                         (stepValidityChange)="onValidityChange($event)">
+
+      </app-location-step>
+    }
+    @case (PHOTOS) {
+      <app-picture-step [pictures]="newJob.pictures"
+                        (picturesChange)="onPictureChange($event)"
+                        (stepValidityChange)="onValidityChange($event)"></app-picture-step>
+    }
+    @case (DESCRIPTION) {
+      <app-description-step [description]="newJob.description"
+                            (descriptionChange)="onDescriptionChange($event)"
+                            (stepValidityChange)="onValidityChange($event)"></app-description-step>
+    }
+    @case (REMUNERATION) {
+      <app-remuneration-step [remuneration]="newJob.remuneration"
+                      (remunerationChange)="onRemunerationChange($event)"
+                      (stepValidityChange)="onValidityChange($event)"></app-remuneration-step>
+    }
+  }
+</div>
+<app-footer-step [currentStep]="currentStep"
+                 [isAllStepsValid]="isAllStepsValid()"
+                 [loading]="loadingCreation"
+                 (finish)="createJob()"
+                 (next)="nextStep()"
+                 (previous)="previousStep()">
+</app-footer-step>

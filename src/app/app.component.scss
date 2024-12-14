@@ -1,0 +1,25 @@
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-darker));
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.cta-buttons {
+  margin-top: 2rem;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.featured-jobs {
+  padding: 4rem 0;
+}
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}

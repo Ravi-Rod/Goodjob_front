@@ -1,0 +1,20 @@
+<div class="mb-3">
+  <h1 class="mb-1">Maintenant choisissez le montant de rémunération</h1>
+  <h2 class="mt-0">Vous pourrez le changer à tout moment.</h2>
+
+  <form #formRemuneration="ngForm" novalidate class="w-full">
+    <span class="p-input-icon-left w-full relative">
+      <fa-icon icon="money-bill" class="dollar absolute top-0"></fa-icon>
+      <input #remunerationInput="ngModel" name="remuneration" required min="1"
+             class="w-full p-inputtext-lg" type="number" pInputText
+             [ngModel]="remuneration.value" (ngModelChange)="onRemunerationChange($event)"/>
+      @if (remunerationInput.dirty && remunerationInput.hasError('required')) {
+        <small id="remuneration-required" class="text-primary">Un montant est recquis</small>
+      } @else if (remunerationInput.dirty && remunerationInput.hasError('min')) {
+        <small id="remuneration-min" class="text-primary">Le montant ne peut etre négatif</small>
+      } @else {
+        <div class="placeholder-validation"></div>
+      }
+    </span>
+  </form>
+</div>
